@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    const char *img_path = "../resources/beatles.jpg";
+    const char *img_path = "resources/beatles.jpg";
 
     // read image
     cv::Mat frame = cv::imread(img_path);
@@ -36,13 +36,11 @@ int main(int argc, char *argv[]) {
             return -1;
         }
 
-        p_mtcnn->load_model("../resources/");
+        p_mtcnn->load_model("resources/");
         
-        unsigned long start_time = get_cur_time();
         std::vector<face_box> face_info;
         p_mtcnn->detect(frame,face_info);
-        unsigned long end_time = get_cur_time();
-        
+
         cout << "detected faces: " << face_info.size() << endl;
 
         for(unsigned int i = 0; i < face_info.size(); i++) {

@@ -9,6 +9,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS_RELEASE} -fprofile-arcs -ftest-coverage")
 
+if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+	set(CMAKE_VERBOSE_MAKEFILE ON)
+	add_compile_options(-Wall -Wextra -pedantic-errors -Werror -Wno-unused-parameter)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+	add_compile_options(/W4 /WX)
+	if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.11)
+		add_compile_options(/permissive-)
+	endif()
+endif()
+
 
 include_directories( ./include ./src ./libs/oaid/include )
 

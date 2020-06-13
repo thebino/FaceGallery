@@ -51,9 +51,8 @@ License:
 #### Build
 For mac or linux builds
 ```shell script
-> cd build
-> cmake ..
-> cmake --build .
+> cmake . -B build
+> cmake --build build
 ```
 
 For windows builds

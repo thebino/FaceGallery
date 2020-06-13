@@ -99,6 +99,7 @@ class  only_for_auto_register
 public:
     only_for_auto_register(std::string name, mtcnn_factory::creator func)
     {
+        std::cout<< "only_for_auto_register" <<"\n"<<name;
         std::cout<<1<<"\n"<<name;
         if(func == NULL)
             std::cout<<"func null\n";
