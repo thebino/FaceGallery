@@ -17,10 +17,13 @@ public:
     ~tf_mtcnn();
 
 protected:
+    // Proposal Network = proposes candidate facial regions
     void run_PNet(const cv::Mat &img, scale_window &win, std::vector<face_box> &box_list);
 
+    // Refine Network = filters the bounding boxes
     void run_RNet(const cv::Mat &img, std::vector<face_box> &pnet_boxes, std::vector<face_box> &output_boxes);
 
+    // Output Network = proposes facial landmarks
     void run_ONet(const cv::Mat &img, std::vector<face_box> &rnet_boxes, std::vector<face_box> &output_boxes);
 
 private:

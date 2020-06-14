@@ -15,31 +15,17 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     const char *img_path = "resources/beatles.jpg";
+    std::cout << "TensorFlow Version: " << TF_Version() << std::endl;
 
     // read image
     cv::Mat frame = cv::imread(img_path);
 
     if (frame.data) {
-        mtcnn * p_mtcnn = mtcnn_factory::create_detector("tensorflow");
+        auto mtcnn1 = new tf_mtcnn();
+        mtcnn1->load_model("resources");
 
-        if (p_mtcnn == nullptr) {
-            std::cerr << "tensorflow is not supported" << std::endl;
-            std::cerr << "supported types: ";
-            std::vector<std::string> type_list = mtcnn_factory::list();
-
-            for (unsigned int i = 0; i < type_list.size(); i++) {
-                std::cerr << " " << type_list[i];
-            }
-
-            std::cerr << std::endl;
-
-            return -1;
-        }
-
-        p_mtcnn->load_model("resources/");
-        
         std::vector<face_box> face_info;
-        p_mtcnn->detect(frame,face_info);
+        mtcnn1->detect(frame, face_info);
 
         cout << "detected faces: " << face_info.size() << endl;
 

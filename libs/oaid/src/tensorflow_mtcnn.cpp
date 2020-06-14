@@ -510,9 +510,7 @@ void tf_mtcnn::detect(cv::Mat &img, std::vector<face_box> &face_list) {
     for (unsigned int i = 0; i < win_list.size(); i++) {
         std::vector<face_box> boxes;
 
-        std::cout << "run_PNet..." << std::endl;
         run_PNet(working_img, win_list[i], boxes);
-        std::cout << "run_PNet done." << std::endl;
 
         total_pnet_boxes.insert(total_pnet_boxes.end(), boxes.begin(), boxes.end());
     }

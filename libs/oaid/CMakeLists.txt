@@ -11,4 +11,5 @@ add_library(oaid STATIC
 
 find_package( OpenCV REQUIRED )
 
-include_directories(${CMAKE_SOURCE_DIR}/include ${TENSORFLOW_LIB} ${OpenCV_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libtensorflow/include)
+include_directories(${CMAKE_SOURCE_DIR}/include ${OpenCV_INCLUDE_DIRS})

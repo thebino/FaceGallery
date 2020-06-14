@@ -28,6 +28,7 @@ add_executable( FaceGallery ./src/main.cpp)
 
 add_subdirectory(./libs/tensorflow)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libtensorflow/include)
+find_library(TENSORFLOW_LIB tensorflow HINT ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflow/lib)
 
 find_package( OpenCV REQUIRED )
 message(STATUS "OpenCV library:")
