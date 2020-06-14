@@ -10,6 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include <iterator>
 #include <iostream>
+#include <wx/wxprec.h>
 
 using namespace std;
 

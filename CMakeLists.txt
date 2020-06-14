@@ -52,5 +52,5 @@ add_subdirectory(./libs/oaid)
 # wxWidgets
 #
 add_subdirectory(libs/wxWidgets)
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/wxWidgets/include)
 target_link_libraries( ${PROJECT_NAME} oaid ${TENSORFLOW_LIB} ${OpenCV_LIBS} net core base)
