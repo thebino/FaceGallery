@@ -11,6 +11,8 @@ build/**
 
 libtensorflow/
 
+libs/qt/src/
+
 # CMake
 cmake-build-*/
 CMakeLists.txt.user

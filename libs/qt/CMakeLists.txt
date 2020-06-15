@@ -18,5 +18,7 @@ if (NOT EXISTS ${CMAKE_SOURCE_DIR}/libs/qt/bin/)
 
     execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf ${CMAKE_SOURCE_DIR}/libs/qt/src/qt-everywhere-src.tar.xz WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/qt/src)
     file(REMOVE ${CMAKE_SOURCE_DIR}/lib/qt/src/qt-everywhere-src.tar.xz)
-    execute_process(COMMAND ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -skip qtwebengine WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/qt/src//qt-everywhere-src-5.15.0)
+    execute_process(COMMAND ./configure -opensource -confirm-license -release -static -prefix ${CMAKE_SOURCE_DIR}/libs/qt/bin -nomake tests -nomake examples -skip qtwebengine WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/qt/src//qt-everywhere-src-5.15.0)
+    execute_process(COMMAND make --directory ${CMAKE_SOURCE_DIR}/libs/qt/src -j6)
+    execute_process(COMMAND make --directory ${CMAKE_SOURCE_DIR}/libs/qt/src install)
 endif()
