@@ -50,6 +50,9 @@ add_subdirectory(./libs/oaid)
 #
 # QT
 #
-add_subdirectory(./libs/qt)
 
-target_link_libraries( ${PROJECT_NAME} oaid ${TENSORFLOW_LIB} ${OpenCV_LIBS})
+target_link_libraries( ${PROJECT_NAME} PRIVATE
+  oaid
+  ${TENSORFLOW_LIB}
+  ${OpenCV_LIBS}
+)
