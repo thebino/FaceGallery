@@ -1,7 +1,7 @@
 /**
- *  Face Gallery
- *
- *
+ * Copyright (c) 2020 - Benjamin Stürmer All rights reserved.
+ * 
+ * FaceGallery is an open source application to manage images within included faces.
  */
 
 #include <tensorflow/c/c_api.h>
@@ -22,6 +22,8 @@ int main(int argc, char *argv[]) {
 
     if (frame.data) {
         auto mtcnn1 = new tf_mtcnn();
+
+        // model have to be named 'mtcnn_frozen_model.pb'
         mtcnn1->load_model("resources");
 
         std::vector<face_box> face_info;
